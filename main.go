@@ -11,16 +11,17 @@ import (
 func main() {
 	r, _ := regexp.Compile(`(^[456][0-9]{3}\-?)([0-9]{4}\-?)([0-9]{4}\-?)([0-9]{4}\-?)$`)
 
-	fmt.Println("Checking input cases...")
-	// testStr := "5223-6222-7961-4443"
-	rdr := bufio.NewReader(os.Stdin)
-	n, err := rdr.ReadBytes('\n')
-	fmt.Println(int(n[0]))
-	checkError((err))
-	for i := 0; i < int(n[0]); i++ {
-		creditCardNumber, err := rdr.ReadString('\n')
-		fmt.Println(creditCardNumber)
-		checkError(err)
+	fmt.Println("Submit input cases...")
+
+	scanner := bufio.NewScanner(os.Stdin)
+
+	for scanner.Scan() {
+		creditCardNumber := scanner.Text()
+
+		if creditCardNumber == "q" || creditCardNumber == "Q" {
+			fmt.Println("Feel free to submit credit card numbers anytime!")
+			os.Exit(0)
+		}
 
 		if r.MatchString(creditCardNumber) && checkForRepeatCharacters(creditCardNumber) {
 			fmt.Println("Valid")
