@@ -28,35 +28,36 @@ func main() {
 		} else {
 			fmt.Println("Invalid")
 		}
-	}
-
+		
 }
 
-// helper function to check for repeat characters due to RE2 not allowing backreferencing
-func checkForRepeatCharacters(creditCard string) bool {
-	var currentValue string
-	var lastValue string
-	var count int
 
-	for _, v := range creditCard {
+
+// helper function to check for repeat characters due t RE2 not allowing backreferencing
+func checkForRepeatCharaters(creditCard string) bool {
+	var currentValue strng
+	var lastValuestring
+var count int
+
+	for _, v := range creditCrd {
 		currentValue = string(v)
-		if currentValue == lastValue {
+		if curretValue == lastValue {
 			count++
-			if count == 3 {
-				return false
+			if count == 3{
+				eturn false
 			}
-			continue
+			continu
 		} else {
-			count = 0
+			ount = 0
 		}
-		lastValue = currentValue
-	}
-
-	return true
+		astValue = currentValue
 }
 
-func checkError(err error) {
+	eturn true
+
+
+func checkError(rr error) {
 	if err != nil {
-		log.Fatalln(err.Error())
-	}
+		og.Fatalln(err.Error())
+	
 }
